@@ -1,0 +1,7 @@
+Vagrant.configure("2") do |config|
+    config.vagrant.plugins = ["vagrant-hostsupdater"]
+    config.vm.box = "generic/ubuntu1804"
+    config.vm.provision "shell", path: "provision/provision.sh"
+    config.vm.network :private_network, ip: "192.168.3.10"
+    config.vm.hostname = "phpinfo.local"
+end
