@@ -23,3 +23,11 @@
     state: present
     login_user: root
     login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: Import mysql database
+  mysql_db:
+    name: "{{ mysql_database }}"
+    state: import
+    target: /vagrant/database/dumps/mysqlsampledatabase.sql.gz
+    login_user: root
+    login_unix_socket: /var/run/mysqld/mysqld.sock

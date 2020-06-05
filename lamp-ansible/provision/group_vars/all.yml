@@ -4,5 +4,6 @@ phpmyadmin_host: "phpmyadmin.local"
 mysql_user: "example"
 mysql_password: "example"
 mysql_database: "example"
+mysql_database_import_file: "mysqlsampledatabase.sql"
 
 ansible_python_interpreter: /usr/bin/python3
