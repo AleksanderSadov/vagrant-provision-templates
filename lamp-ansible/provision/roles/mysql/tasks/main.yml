@@ -2,3 +2,14 @@
   apt:
     name: mysql-server
     state: present
+
+- name: Install mysql requisites
+  apt:
+    name: python3-pymysql
+    state: present
+
+- name: Create mysql user
+  mysql_user:
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
