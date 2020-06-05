@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerName {{ main_host }}
+    DocumentRoot /vagrant/webroot
+    ErrorLog ${APACHE_LOG_DIR}/{{ main_host }}-error.log
+    CustomLog ${APACHE_LOG_DIR}/{{ main_host }}-access.log combined
+
+    <Directory "/vagrant/webroot">
+        Require all granted
+    </Directory>
+</VirtualHost>

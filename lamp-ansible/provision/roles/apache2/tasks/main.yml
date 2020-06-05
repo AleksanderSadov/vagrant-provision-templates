@@ -1,0 +1,13 @@
+- name: Istall apache2
+  apt:
+    name: apache2
+    state: present
+
+- name: Setup main virtual_host
+  template:
+    src: "files/main_virtual_host.j2"
+    dest: "/etc/apache2/sites-available/{{ main_host }}.conf"
+
+- name: Enable main site
+  command: a2ensite {{ main_host }}.conf
+  notify: Reload Apache
