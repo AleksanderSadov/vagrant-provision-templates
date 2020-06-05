@@ -5,9 +5,11 @@
 
 - name: Setup main virtual_host
   template:
-    src: "files/main_virtual_host.j2"
-    dest: "/etc/apache2/sites-available/{{ main_host }}.conf"
+    src: files/main_virtual_host.j2
+    dest: /etc/apache2/sites-available/{{ main_host }}.conf
 
 - name: Enable main site
   command: a2ensite {{ main_host }}.conf
   notify: Reload Apache
+  args:
+    creates: /etc/apache2/sites-enabled/{{ main_host }}.conf
