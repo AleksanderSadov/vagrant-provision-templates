@@ -13,3 +13,14 @@
   notify: Reload Apache
   args:
     creates: /etc/apache2/sites-enabled/{{ main_host }}.conf
+
+- name: Setup additonal phpmyadmin virtual host
+  template:
+    src: files/phpmyadmin_virtual_host.j2
+    dest: /etc/apache2/sites-available/{{ phpmyadmin_host }}.conf
+
+- name: Enable additional phpmyadmin virtual host
+  command: a2ensite {{ phpmyadmin_host }}.conf
+  notify: Reload Apache
+  args:
+    creates: /etc/apache2/sites-enabled/{{ phpmyadmin_host }}.conf

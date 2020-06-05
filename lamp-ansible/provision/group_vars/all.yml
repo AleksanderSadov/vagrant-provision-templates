@@ -1,3 +1,4 @@
 main_host: "example.local"
+phpmyadmin_host: "phpmyadmin.local"
 
 ansible_python_interpreter: /usr/bin/python3
