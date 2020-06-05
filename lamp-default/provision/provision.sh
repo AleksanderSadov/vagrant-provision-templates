@@ -31,4 +31,14 @@ else
     echo "php already installed"
 fi
 
+if [[ ! $(command -v composer) ]]; then
+    echo "Installing composer"
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" > /dev/null
+    php composer-setup.php > /dev/null
+    sudo mv composer.phar /usr/local/bin/composer > /dev/null
+    php -r "unlink('composer-setup.php');" > /dev/null
+else
+    echo "composer already installed"
+fi
+
 echo "End provision"
