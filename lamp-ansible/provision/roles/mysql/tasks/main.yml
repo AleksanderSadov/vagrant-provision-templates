@@ -14,6 +14,7 @@
     state: present
     login_user: root
     login_unix_socket: /var/run/mysqld/mysqld.sock
+  notify: Import mysql database
 
 - name: Create mysql user
   mysql_user:
@@ -21,13 +22,5 @@
     password: "{{ mysql_password }}"
     priv: "{{ mysql_database }}.*:ALL"
     state: present
-    login_user: root
-    login_unix_socket: /var/run/mysqld/mysqld.sock
-
-- name: Import mysql database
-  mysql_db:
-    name: "{{ mysql_database }}"
-    state: import
-    target: /vagrant/database/dumps/mysqlsampledatabase.sql.gz
     login_user: root
     login_unix_socket: /var/run/mysqld/mysqld.sock
