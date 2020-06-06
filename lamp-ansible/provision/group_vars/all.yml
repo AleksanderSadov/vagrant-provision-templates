@@ -6,4 +6,10 @@ mysql_password: "example"
 mysql_database: "example"
 mysql_database_import_file: "mysqlsampledatabase.sql"
 
+php_version: 5.6
+php_modules: [
+  'php{{ php_version }}-mbstring',
+  'php{{ php_version }}-mysqli'
+]
+
 ansible_python_interpreter: /usr/bin/python3

@@ -1,4 +1,15 @@
+- name: Add PHP ppa repository
+  apt_repository:
+    repo: "ppa:ondrej/php"
+
 - name: Install php
   apt:
-    name: php
+    name: "php{{ php_version }}"
     state: present
+
+- name: Install php extensions
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ php_modules }}"
+  notify: Restart Apache
