@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - apache2
+    - mysql
+    - php
+    - composer
+    - phpmyadmin
+    - wordpress

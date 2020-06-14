@@ -1,0 +1,4 @@
+- name: Set up WordPress wp-config
+  template:
+    src: "files/wp-config.php.j2"
+    dest: "/vagrant/{{ app_dir_name }}/wp-config.php"

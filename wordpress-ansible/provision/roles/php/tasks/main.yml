@@ -1,0 +1,33 @@
+- name: Add PHP ppa repository
+  apt_repository:
+    repo: "ppa:ondrej/php"
+
+- name: Install php
+  apt:
+    name: php{{ php_version }}
+    state: present
+
+- name: Install php extensions
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ php_modules }}"
+  notify: Restart Apache
+
+- name: Install php xdebug
+  apt:
+    name: php-xdebug
+    state: present
+
+- name: Configure php xdebug
+  ini_file:
+    path: /etc/php/{{ php_version }}/apache2/php.ini
+    section: xdebug
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop:
+    - { option: xdebug.remote_enable, value: 1 }
+    - { option: xdebug.remote_host, value: 10.0.2.2 }
+    - { option: xdebug.remote_port, value: 9000 }
+    - { option: xdebug.idekey, value: "{{ xdebug_ide_key }}" }
+  notify: Restart Apache
