@@ -2,8 +2,8 @@ To select **Ubuntu** version change **config.vm.box** in **Vagrantfile**.
 
 Configuration and variables are available in **provision/group_vars/all.yml**.
 
-To use existing **WordPress** code: copy it to root project directory and specify **{{ app_dir_name }}**,  
-if this directory does not exist latest **WordPress** will be downloaded for new projects.
+To use existing **CakePHP** code: copy it to root project directory and specify **{{ app_dir_name }}**,  
+if this directory does not exist latest **CakePHP** will be downloaded for new projects.
 
 To import database enable **{{ mysql_database_need_import }}** and specify **{{ mysql_database_import_path }}**.
 
