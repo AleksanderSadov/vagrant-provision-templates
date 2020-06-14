@@ -1,3 +1,3 @@
-## Vagrant template provisions to use for new projects
+## Vagrant provision templates to use for new projects
 
-Configuration available in **provision/group_vars/all.yml**.
+Details on specific template available in **README.md** inside.

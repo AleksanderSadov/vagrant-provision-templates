@@ -1,5 +1,3 @@
-## Vagrant template provisions to use for new projects
-
 To select **Ubuntu** version change **config.vm.box** in **Vagrantfile**.  
 
 Configuration available in **provision/group_vars/all.yml**.
