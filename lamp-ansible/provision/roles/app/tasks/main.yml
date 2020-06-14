@@ -1,0 +1,7 @@
+- name: Set ownership for app directories
+  file:
+    path: "/vagrant/{{ app_dir_name }}"
+    state: directory
+    recurse: yes
+    owner: www-data
+    group: www-data

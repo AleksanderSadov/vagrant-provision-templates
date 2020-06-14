@@ -1,3 +1,5 @@
+app_dir_name: "app"
+
 main_host: "example.local"
 phpmyadmin_host: "phpmyadmin.local"
 

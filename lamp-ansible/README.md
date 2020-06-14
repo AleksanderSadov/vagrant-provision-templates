@@ -2,6 +2,8 @@ To select **Ubuntu** version change **config.vm.box** in **Vagrantfile**.
 
 Configuration available in **provision/group_vars/all.yml**.
 
+To import database enable **{{ mysql_database_need_import }}** and specify **{{ mysql_database_import_path }}**.
+
 Virtual Hosts templates available in  **provision/roles/apache2/files**.
 
 Tested packages versions compatibility listed below.  
