@@ -5,6 +5,8 @@
 
 - name: Enable apache2 rewrite module
   shell: /usr/sbin/a2enmod rewrite
+  args:
+    creates: /etc/apache2/mods-enabled/rewrite.load
   notify: Reload Apache
 
 - name: Setup main virtual_host

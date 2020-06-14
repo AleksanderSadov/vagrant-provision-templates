@@ -5,6 +5,7 @@
     CustomLog ${APACHE_LOG_DIR}/{{ main_host }}-access.log combined
 
     <Directory "/vagrant/{{ app_dir_name }}">
+        AllowOverride All
         Require all granted
     </Directory>
 </VirtualHost>

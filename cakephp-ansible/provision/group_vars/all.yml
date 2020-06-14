@@ -6,6 +6,11 @@ phpmyadmin_host: "phpmyadmin.local"
 mysql_user: "cakephp"
 mysql_password: "cakephp"
 mysql_database: "cakephp"
+
+cakephp_test_mysql_user: "test-cakephp"
+cakephp_test_mysql_password: "test-cakephp"
+cakephp_test_mysql_database: "test-cakephp"
+
 mysql_database_need_import: false
 mysql_database_import_path: "/vagrant/database/dumps/<database_name>"
 
@@ -19,7 +24,8 @@ php_modules: [
   'php{{ php_version }}-xmlrpc',
   'php{{ php_version }}-soap',
   'php{{ php_version }}-intl',
-  'php{{ php_version }}-zip'
+  'php{{ php_version }}-zip',
+  'php{{ php_version }}-sqlite3'
 ]
 
 xdebug_ide_key: PHPSTORM

@@ -1,4 +1,4 @@
-- name: Set up WordPress wp-config
+- name: Set up CakePHP app config
   template:
-    src: "files/wp-config.php.j2"
-    dest: "/vagrant/{{ app_dir_name }}/wp-config.php"
+    src: "files/app_local.php.j2"
+    dest: "/vagrant/{{ app_dir_name }}/config/app_local.php"

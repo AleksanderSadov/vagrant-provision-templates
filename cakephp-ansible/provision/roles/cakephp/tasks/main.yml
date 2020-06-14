@@ -1,21 +1,10 @@
-- name: Download and unpack latest WordPress
-  unarchive:
-    src: https://wordpress.org/latest.tar.gz
-    dest: "/vagrant"
-    remote_src: yes
+- name: Download latest CakePHP
+  command: composer create-project --prefer-dist cakephp/app:~4.0 /vagrant/{{ app_dir_name }}
+  args:
     creates: "/vagrant/{{ app_dir_name }}"
-  notify: Set up WordPress wp-config
+  notify: Set up CakePHP app config
 
-- name: Set ownership for WordPress directories
-  file:
-    path: "/vagrant/{{ app_dir_name }}"
-    state: directory
-    recurse: yes
-    owner: www-data
-    group: www-data
-
-- name: Set permissions for WordPress directories
-  shell: "/usr/bin/find /vagrant/{{ app_dir_name }}/ -type d -exec chmod 750 {} \\;"
-
-- name: Set permissions for WordPress files
-  shell: "/usr/bin/find /vagrant/{{ app_dir_name }}/ -type f -exec chmod 640 {} \\;"
+- name: Install composer dependencies
+  command: composer --working-dir=/vagrant/{{ app_dir_name }} install
+  args:
+    creates: "/vagrant/{{ app_dir_name }}/vendor"
