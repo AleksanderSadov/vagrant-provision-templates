@@ -4,7 +4,8 @@ phpmyadmin_host: "phpmyadmin.local"
 mysql_user: "example"
 mysql_password: "example"
 mysql_database: "example"
-mysql_database_import_file: "mysqlsampledatabase.sql"
+mysql_database_need_import: true
+mysql_database_import_path: "/vagrant/database/dumps/mysqlsampledatabase.sql.gz"
 
 php_version: 7.4
 php_modules: [
