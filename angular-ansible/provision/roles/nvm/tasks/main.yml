@@ -3,3 +3,9 @@
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
     warn: no
+
+- name: Install nodejs
+  shell: . /home/vagrant/.nvm/nvm.sh && nvm install node
+  args:
+    executable: /bin/bash
+    creates: "{{ ansible_env.HOME }}/.nvm/versions/node"
