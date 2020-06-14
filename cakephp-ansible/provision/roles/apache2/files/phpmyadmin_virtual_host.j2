@@ -1,0 +1,10 @@
+<VirtualHost *:80>
+    ServerName {{ phpmyadmin_host }}
+    DocumentRoot /usr/share/phpmyadmin
+    ErrorLog ${APACHE_LOG_DIR}/{{ phpmyadmin_host }}-error.log
+    CustomLog ${APACHE_LOG_DIR}/{{ phpmyadmin_host }}-access.log combined
+
+    <Directory "/usr/share/phpmyadmin">
+        Require all granted
+    </Directory>
+</VirtualHost>

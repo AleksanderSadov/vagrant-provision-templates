@@ -1,0 +1,27 @@
+app_dir_name: "cakephp"
+
+main_host: "cakephp.local"
+phpmyadmin_host: "phpmyadmin.local"
+
+mysql_user: "cakephp"
+mysql_password: "cakephp"
+mysql_database: "cakephp"
+mysql_database_need_import: false
+mysql_database_import_path: "/vagrant/database/dumps/<database_name>"
+
+php_version: 7.4
+php_modules: [
+  'php{{ php_version }}-mbstring',
+  'php{{ php_version }}-mysqli',
+  'php{{ php_version }}-curl',
+  'php{{ php_version }}-gd',
+  'php{{ php_version }}-xml',
+  'php{{ php_version }}-xmlrpc',
+  'php{{ php_version }}-soap',
+  'php{{ php_version }}-intl',
+  'php{{ php_version }}-zip'
+]
+
+xdebug_ide_key: PHPSTORM
+
+ansible_python_interpreter: /usr/bin/python3
