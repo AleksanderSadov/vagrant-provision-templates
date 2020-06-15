@@ -2,9 +2,13 @@
   command: composer create-project --prefer-dist cakephp/app:~4.0 /vagrant/{{ app_dir_name }}
   args:
     creates: "/vagrant/{{ app_dir_name }}"
+  vars:
+    ansible_become_user: vagrant
   notify: Set up CakePHP app config
 
 - name: Install composer dependencies
   command: composer --working-dir=/vagrant/{{ app_dir_name }} install
   args:
     creates: "/vagrant/{{ app_dir_name }}/vendor"
+  vars:
+    ansible_become_user: vagrant
