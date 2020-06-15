@@ -2,6 +2,7 @@
   npm:
     name: "@angular/cli"
     global: yes
+    version: "{{ angular_cli_version}}"
     state: present
   vars:
     ansible_become_user: vagrant
