@@ -19,6 +19,8 @@
 - name: Configure npm to use new directory path for vagrant user
   lineinfile:
     path: "/home/vagrant/.npmrc"
+    owner: vagrant
+    group: vagrant
     state: present
     create: yes
     line: "prefix = /home/vagrant/.npm-global"
@@ -26,5 +28,7 @@
 - name: Save npm new directory path to /home/vagrant/.profile
   lineinfile:
     path: "/home/vagrant/.profile"
+    owner: vagrant
+    group: vagrant
     state: present
     line: "export PATH=~/.npm-global/bin:$PATH"

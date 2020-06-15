@@ -5,3 +5,18 @@
     state: present
   vars:
     ansible_become_user: vagrant
+
+- name: Create angular project
+  command: ng new {{ app_dir_name }}
+  args:
+    chdir: /vagrant
+    creates: /vagrant/{{ app_dir_name }}
+  vars:
+    ansible_become_user: vagrant
+
+- name: Install npm dependencies
+  npm:
+    path: /vagrant/{{ app_dir_name }}
+    state: present
+  vars:
+    ansible_become_user: vagrant
