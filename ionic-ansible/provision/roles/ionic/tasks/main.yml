@@ -1,0 +1,32 @@
+- name: Install Ionic
+  npm:
+    name: "@ionic/cli"
+    global: yes
+    version: "{{ ionic_cli_version }}"
+    state: present
+  vars:
+    ansible_become_user: vagrant
+
+# Live-reload fix, for details refer to discussion: https://github.com/ionic-team/ionic-app-scripts/issues/817#issuecomment-384363090
+- name: Add CHOKIDAR_USEPOLLING environment variable to ~/.profile
+  lineinfile:
+    path: "/home/vagrant/.profile"
+    owner: vagrant
+    group: vagrant
+    state: present
+    line: "export CHOKIDAR_USEPOLLING=1"
+
+- name: Create Ionic project
+  command: ionic start {{ app_dir_name }} {{ ionic_new_app_template }}
+  args:
+    chdir: /vagrant
+    creates: /vagrant/{{ app_dir_name }}
+  vars:
+    ansible_become_user: vagrant
+
+- name: Install npm dependencies
+  npm:
+    path: /vagrant/{{ app_dir_name }}
+    state: present
+  vars:
+    ansible_become_user: vagrant

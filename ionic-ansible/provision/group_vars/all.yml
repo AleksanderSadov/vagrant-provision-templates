@@ -1,0 +1,7 @@
+app_dir_name: "ionic"
+
+node_version: 14
+ionic_cli_version: latest
+ionic_new_app_template: blank
+
+ansible_python_interpreter: /usr/bin/python3
