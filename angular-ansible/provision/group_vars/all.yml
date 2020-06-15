@@ -1,3 +1,5 @@
 app_dir_name: "angular"
 
+node_version: 14
+
 ansible_python_interpreter: /usr/bin/python3

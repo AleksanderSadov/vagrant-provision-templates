@@ -1,0 +1,30 @@
+- name: Execute node setup script
+  shell: curl -sL https://deb.nodesource.com/setup_{{ node_version }}.x | sudo -E bash -
+  args:
+    creates: /usr/bin/node
+    warn: no
+
+- name: Istall node
+  apt:
+    name: nodejs
+    state: present
+
+- name: Create npm-global directory for vagrant user
+  file:
+    path: "/home/vagrant/.npm-global"
+    owner: vagrant
+    group: vagrant
+    state: directory
+
+- name: Configure npm to use new directory path for vagrant user
+  lineinfile:
+    path: "/home/vagrant/.npmrc"
+    state: present
+    create: yes
+    line: "prefix = /home/vagrant/.npm-global"
+
+- name: Save npm new directory path to /home/vagrant/.profile
+  lineinfile:
+    path: "/home/vagrant/.profile"
+    state: present
+    line: "export PATH=~/.npm-global/bin:$PATH"
