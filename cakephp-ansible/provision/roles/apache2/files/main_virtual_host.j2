@@ -1,5 +1,6 @@
 <VirtualHost *:80>
     ServerName {{ main_host }}
+    ServerAlias {{ main_host_aliases | join(' ') }}
     DocumentRoot /vagrant/{{ app_dir_name }}
     ErrorLog ${APACHE_LOG_DIR}/{{ main_host }}-error.log
     CustomLog ${APACHE_LOG_DIR}/{{ main_host }}-access.log combined

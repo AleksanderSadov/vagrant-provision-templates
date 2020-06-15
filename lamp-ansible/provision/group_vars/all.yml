@@ -1,6 +1,7 @@
 app_dir_name: "app"
 
 main_host: "example.local"
+main_host_aliases: []
 phpmyadmin_host: "phpmyadmin.local"
 
 mysql_user: "example"

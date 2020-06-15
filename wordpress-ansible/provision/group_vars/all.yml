@@ -1,6 +1,7 @@
 app_dir_name: "wordpress"
 
 main_host: "wordpress.local"
+main_host_aliases: []
 phpmyadmin_host: "phpmyadmin.local"
 
 mysql_user: "wordpress"

@@ -1,6 +1,7 @@
 app_dir_name: "cakephp"
 
 main_host: "cakephp.local"
+main_host_aliases: []
 phpmyadmin_host: "phpmyadmin.local"
 
 mysql_user: "cakephp"
